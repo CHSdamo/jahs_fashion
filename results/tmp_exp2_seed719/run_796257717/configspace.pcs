@@ -1,0 +1,25 @@
+batch_size categorical {64, 128, 256, 512, 1024, 2048} [64]
+data_dir categorical {./dataset} [./dataset]
+device categorical {cuda} [cuda]
+dropout_rate categorical {0.1, 0.2, 0.3, 0.4, 0.5} [0.1]
+global_avg_pooling categorical {False, True} [False]
+kernel_size categorical {3, 5} [3]
+learning_rate_init real [0.001, 1.0] [0.0316227766]log
+n_conv_0 integer [8, 256] [45]log
+n_conv_layers integer [1, 3] [2]
+n_fc_layers integer [0, 2] [1]
+optimizer categorical {Adam, SGD} [Adam]
+random_horizontal_flip categorical {True, False} [True]
+random_rotation categorical {True, False} [True]
+seed categorical {719} [719]
+use_BN categorical {False, True} [False]
+weight_decay real [1e-05, 0.01] [0.0003162278]log
+n_conv_1 integer [8, 256] [45]log
+n_conv_2 integer [8, 256] [45]log
+n_fc_0 integer [512, 2048] [1024]log
+n_fc_1 integer [512, 2048] [1024]log
+
+n_conv_1 | n_conv_layers in {2, 3}
+n_conv_2 | n_conv_layers in {3}
+n_fc_0 | n_fc_layers in {1, 2}
+n_fc_1 | n_fc_layers in {2}

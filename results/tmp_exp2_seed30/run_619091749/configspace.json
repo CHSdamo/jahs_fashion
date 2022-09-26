@@ -1,0 +1,217 @@
+{
+  "hyperparameters": [
+    {
+      "name": "batch_size",
+      "type": "categorical",
+      "choices": [
+        64,
+        128,
+        256,
+        512,
+        1024,
+        2048
+      ],
+      "default": 64,
+      "weights": null
+    },
+    {
+      "name": "data_dir",
+      "type": "constant",
+      "value": "./dataset"
+    },
+    {
+      "name": "device",
+      "type": "constant",
+      "value": "cuda"
+    },
+    {
+      "name": "dropout_rate",
+      "type": "categorical",
+      "choices": [
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5
+      ],
+      "default": 0.1,
+      "weights": null
+    },
+    {
+      "name": "global_avg_pooling",
+      "type": "categorical",
+      "choices": [
+        false,
+        true
+      ],
+      "default": false,
+      "weights": null
+    },
+    {
+      "name": "kernel_size",
+      "type": "categorical",
+      "choices": [
+        3,
+        5
+      ],
+      "default": 3,
+      "weights": null
+    },
+    {
+      "name": "learning_rate_init",
+      "type": "uniform_float",
+      "log": true,
+      "lower": 0.001,
+      "upper": 1.0,
+      "default": 0.0316227766
+    },
+    {
+      "name": "n_conv_0",
+      "type": "uniform_int",
+      "log": true,
+      "lower": 8,
+      "upper": 256,
+      "default": 45
+    },
+    {
+      "name": "n_conv_layers",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 1,
+      "upper": 3,
+      "default": 2
+    },
+    {
+      "name": "n_fc_layers",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 0,
+      "upper": 2,
+      "default": 1
+    },
+    {
+      "name": "optimizer",
+      "type": "categorical",
+      "choices": [
+        "Adam",
+        "SGD"
+      ],
+      "default": "Adam",
+      "weights": null
+    },
+    {
+      "name": "random_horizontal_flip",
+      "type": "categorical",
+      "choices": [
+        true,
+        false
+      ],
+      "default": true,
+      "weights": null
+    },
+    {
+      "name": "random_rotation",
+      "type": "categorical",
+      "choices": [
+        true,
+        false
+      ],
+      "default": true,
+      "weights": null
+    },
+    {
+      "name": "seed",
+      "type": "constant",
+      "value": 30
+    },
+    {
+      "name": "use_BN",
+      "type": "categorical",
+      "choices": [
+        false,
+        true
+      ],
+      "default": false,
+      "weights": null
+    },
+    {
+      "name": "weight_decay",
+      "type": "uniform_float",
+      "log": true,
+      "lower": 1e-05,
+      "upper": 0.01,
+      "default": 0.0003162278
+    },
+    {
+      "name": "n_conv_1",
+      "type": "uniform_int",
+      "log": true,
+      "lower": 8,
+      "upper": 256,
+      "default": 45
+    },
+    {
+      "name": "n_conv_2",
+      "type": "uniform_int",
+      "log": true,
+      "lower": 8,
+      "upper": 256,
+      "default": 45
+    },
+    {
+      "name": "n_fc_0",
+      "type": "uniform_int",
+      "log": true,
+      "lower": 512,
+      "upper": 2048,
+      "default": 1024
+    },
+    {
+      "name": "n_fc_1",
+      "type": "uniform_int",
+      "log": true,
+      "lower": 512,
+      "upper": 2048,
+      "default": 1024
+    }
+  ],
+  "conditions": [
+    {
+      "child": "n_conv_1",
+      "parent": "n_conv_layers",
+      "type": "IN",
+      "values": [
+        2,
+        3
+      ]
+    },
+    {
+      "child": "n_conv_2",
+      "parent": "n_conv_layers",
+      "type": "IN",
+      "values": [
+        3
+      ]
+    },
+    {
+      "child": "n_fc_0",
+      "parent": "n_fc_layers",
+      "type": "IN",
+      "values": [
+        1,
+        2
+      ]
+    },
+    {
+      "child": "n_fc_1",
+      "parent": "n_fc_layers",
+      "type": "IN",
+      "values": [
+        2
+      ]
+    }
+  ],
+  "forbiddens": [],
+  "python_module_version": "0.6.0",
+  "json_format_version": 0.4
+}
