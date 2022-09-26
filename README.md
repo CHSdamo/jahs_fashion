@@ -1,6 +1,6 @@
 # Joint Architecture Search and Hyperparameter Optimization of a Convolutional Neural Network
 
-This repository is the implementation of the AutoML 2022 final project [JAHS_Fashion](https://github.com/automl-classroom/final-project-multiverse/blob/master/jahs_fashion/project_jahs_fashion.pdf).
+This repository is the implementation of the AutoML 2022 final project [JAHS_Fashion](https://github.com/CHSdamo/jahs_fashion/blob/main/project_jahs_fashion.pdf).
 
 ## Requirements
 
